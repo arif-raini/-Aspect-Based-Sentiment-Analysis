@@ -154,8 +154,7 @@ with st.sidebar:
             "🔍 Single Review Analysis",
             "📁 Batch CSV Analysis",
             "📊 Visual Analytics",
-            "🧠 Model Performance",
-            "📘 University Report & Viva"
+            "🧠 Model Performance"
         ],
         index=0
     )
@@ -549,85 +548,5 @@ elif page == "🧠 Model Performance":
         st.warning("Model metrics file not found. Run model_evaluation.py to populate metrics.")
 
 
-# =============================================================
-# PAGE 5: UNIVERSITY REPORT & VIVA
-# =============================================================
-elif page == "📘 University Report & Viva":
-    st.title("📘 University Mini-Project Report & Viva Guide")
-    st.markdown("Comprehensive academic documentation and viva voce examination preparation.")
 
-    tab_doc, tab_viva, tab_arch = st.tabs(["📄 Academic Report Chapters", "🎓 Viva Voce Q&A", "🏗️ System Architecture"])
-
-    with tab_doc:
-        academic_report_path = Path("reports/academic_report.md")
-        if academic_report_path.exists():
-            with open(academic_report_path, "r", encoding="utf-8") as f:
-                st.markdown(f.read())
-        else:
-            st.markdown("Academic report document will be displayed here.")
-
-    with tab_viva:
-        viva_path = Path("reports/viva_questions.md")
-        if viva_path.exists():
-            with open(viva_path, "r", encoding="utf-8") as f:
-                st.markdown(f.read())
-        else:
-            st.markdown("Viva questions document will be displayed here.")
-
-    with tab_arch:
-        st.markdown("""
-        ### End-to-End System Architecture
-
-        ```
-        +-----------------------------------------------------------------------------------+
-        |                                Customer Product Review                            |
-        |  "The phone camera is excellent, battery backup is poor, and display is amazing." |
-        +-----------------------------------------+-----------------------------------------+
-                                                  |
-                                                  v
-        +-----------------------------------------------------------------------------------+
-        |                              NLP Preprocessing Engine                             |
-        |  - Lowercasing & Contraction Expansion ("don't" -> "do not")                      |
-        |  - Punctuation & Special Character Cleaning                                       |
-        |  - Negation-Aware Stop-word Removal (Preserves "not", "no", "never", "barely")    |
-        |  - POS-Informed Lemmatization (WordNet Lemmatizer)                                |
-        +-----------------------------------------+-----------------------------------------+
-                                                  |
-                                                  v
-        +-----------------------------------------------------------------------------------+
-        |                         Aspect Extraction & Segmentation                          |
-        |  - Clause Partitioning (Coordinating Conjunctions: but, however, and, yet)        |
-        |  - Dependency Parsing & Noun Chunks (spaCy: nsubj, dobj, amod, acomp)             |
-        |  - Aspect Taxonomy & Synonym Mapping (Longest matching compound priority)         |
-        |                                                                                   |
-        |    [Camera]  --> Clause: "The phone camera is excellent"                          |
-        |    [Battery] --> Clause: "battery backup is poor"                                 |
-        |    [Display] --> Clause: "and the display quality is amazing"                     |
-        +-----------------------------------------+-----------------------------------------+
-                                                  |
-                                                  v
-        +-----------------------------------------------------------------------------------+
-        |                       Sentiment Classification Engine                             |
-        |  - TF-IDF N-Gram Vectorizer (1, 2)                                                |
-        |  - Classifiers: Logistic Regression (Balanced) | Naive Bayes | VADER              |
-        |                                                                                   |
-        |    Camera Context  --> [Positive] (Confidence: 85%)                               |
-        |    Battery Context --> [Negative] (Confidence: 89%)                               |
-        |    Display Context --> [Positive] (Confidence: 91%)                               |
-        +-----------------------------------------+-----------------------------------------+
-                                                  |
-                                                  v
-        +-----------------------------------------------------------------------------------+
-        |                           Overall Sentiment Synthesis                             |
-        |  - Multi-Polarity Resolution Logic:                                               |
-        |    Positive Aspects + Negative Aspects ==> Overall: [MIXED]                       |
-        +-----------------------------------------+-----------------------------------------+
-                                                  |
-                                                  v
-        +-----------------------------------------------------------------------------------+
-        |                       Interactive Streamlit Web Dashboard                         |
-        |  - Live Single Review ABSA | Batch CSV Processing | Analytics | Benchmarks        |
-        +-----------------------------------------------------------------------------------+
-        ```
-        """)
 
