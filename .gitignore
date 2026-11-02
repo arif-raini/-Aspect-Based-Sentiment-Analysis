@@ -1,0 +1,24 @@
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Streamlit local credentials
+.streamlit/credentials.toml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE configs
+.idea/
+.vscode/
+*.swp
